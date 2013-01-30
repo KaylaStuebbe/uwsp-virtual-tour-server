@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @poi.title %>
+</p>
+
+<p>
+  <b>Lat:</b>
+  <%= @poi.lat %>
+</p>
+
+<p>
+  <b>Long:</b>
+  <%= @poi.long %>
+</p>
+
+
+<%= link_to 'Edit', edit_poi_path(@poi) %> |
+<%= link_to 'Back', pois_path %>
