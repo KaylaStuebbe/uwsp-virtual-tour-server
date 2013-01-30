@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @item_to_view.title %>
+</p>
+
+<p>
+  <b>Poi:</b>
+  <%= @item_to_view.poi_id %>
+</p>
+
+<p>
+  <b>Compass heading:</b>
+  <%= @item_to_view.compass_heading %>
+</p>
+
+<p>
+  <b>Altitude:</b>
+  <%= @item_to_view.altitude %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%= @item_to_view.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_item_to_view_path(@item_to_view) %> |
+<%= link_to 'Back', item_to_views_path %>

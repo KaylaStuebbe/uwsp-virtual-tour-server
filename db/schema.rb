@@ -11,7 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130012643) do
+ActiveRecord::Schema.define(:version => 20130130023421) do
+
+  create_table "item_to_views", :force => true do |t|
+    t.string   "title"
+    t.integer  "poi_id"
+    t.integer  "compass_heading"
+    t.integer  "altitude"
+    t.string   "body"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
 
   create_table "pois", :force => true do |t|
     t.string   "title"

@@ -1,0 +1,31 @@
+<h1>Listing item_to_views</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Poi</th>
+    <th>Compass heading</th>
+    <th>Altitude</th>
+    <th>Body</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @item_to_views.each do |item_to_view| %>
+  <tr>
+    <td><%= item_to_view.title %></td>
+    <td><%= item_to_view.poi_id %></td>
+    <td><%= item_to_view.compass_heading %></td>
+    <td><%= item_to_view.altitude %></td>
+    <td><%= item_to_view.body %></td>
+    <td><%= link_to 'Show', item_to_view %></td>
+    <td><%= link_to 'Edit', edit_item_to_view_path(item_to_view) %></td>
+    <td><%= link_to 'Destroy', item_to_view, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item to view', new_item_to_view_path %>
