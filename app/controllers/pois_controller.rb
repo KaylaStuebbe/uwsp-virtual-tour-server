@@ -7,6 +7,7 @@ class PoisController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @pois }
+      format.xml { render xml: @pois }
     end
   end
 
