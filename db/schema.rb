@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130130023421) do
+ActiveRecord::Schema.define(:version => 20130207183420) do
 
   create_table "item_to_views", :force => true do |t|
     t.string   "title"
@@ -29,6 +29,17 @@ ActiveRecord::Schema.define(:version => 20130130023421) do
     t.decimal  "long"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "tour_id"
+  end
+
+  create_table "tours", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.string   "location"
+    t.decimal  "lat"
+    t.decimal  "long"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
 end

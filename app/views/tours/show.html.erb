@@ -1,0 +1,6 @@
+<h1>Tour: <%= @tour.name %></h1>
+<h3>Description</h3>
+<p><%= @tour.description %></p>
+
+<h3>POIs:</h3>
+<%= render 'pois/poi_table', pois: @tour.poi %>

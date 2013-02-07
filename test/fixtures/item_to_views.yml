@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  poi_id: 1
+  compass_heading: 1
+  altitude: 1
+  body: MyString
+
+two:
+  title: MyString
+  poi_id: 1
+  compass_heading: 1
+  altitude: 1
+  body: MyString
