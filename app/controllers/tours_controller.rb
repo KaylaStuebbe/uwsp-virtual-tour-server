@@ -18,6 +18,12 @@ class ToursController < ApplicationController
 
   def index
     @tours = Tour.all
+
+    respond_to do |format|
+      format.html
+      format.json { render json: @tours }
+      format.xml { render xml: @tours }
+    end
   end
 
   def show
