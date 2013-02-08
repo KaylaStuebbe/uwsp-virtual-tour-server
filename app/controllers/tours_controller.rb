@@ -1,5 +1,6 @@
 class ToursController < ApplicationController
   def new
+    @tour = Tour.new
   end
 
   def create
@@ -9,6 +10,7 @@ class ToursController < ApplicationController
   end
 
   def edit
+    @tour = Tour.find(params[:id])
   end
 
   def destroy
@@ -20,5 +22,11 @@ class ToursController < ApplicationController
 
   def show
     @tour = Tour.find(params[:id])
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render :json => @tour.to_json(:include => :pois) }
+      format.xml { render :xml => @tour.to_xml(:include => :pois) }
+    end
   end
 end

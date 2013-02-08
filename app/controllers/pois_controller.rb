@@ -2,7 +2,8 @@ class PoisController < ApplicationController
   # GET /pois
   # GET /pois.json
   def index
-    @pois = Poi.all
+    @tour = Tour.find(params[:tour_id])
+    @pois = @tour.pois
 
     respond_to do |format|
       format.html # index.html.erb
@@ -11,9 +12,10 @@ class PoisController < ApplicationController
     end
   end
 
-  # GET /pois/1
-  # GET /pois/1.json
+  # GET /tour/1/pois/1
+  # GET /tour/1/pois/1.json
   def show
+    @tour = Tour.find(params[:tour_id])
     @poi = Poi.find(params[:id])
 
     respond_to do |format|
@@ -25,6 +27,7 @@ class PoisController < ApplicationController
   # GET /pois/new
   # GET /pois/new.json
   def new
+    @tour = Tour.find(params[:tour_id])
     @poi = Poi.new
 
     respond_to do |format|
@@ -41,11 +44,13 @@ class PoisController < ApplicationController
   # POST /pois
   # POST /pois.json
   def create
+    @tour = Tour.find(params[:tour_id])
     @poi = Poi.new(params[:poi])
+    @poi.tour = @tour
 
     respond_to do |format|
       if @poi.save
-        format.html { redirect_to @poi, notice: 'Poi was successfully created.' }
+        format.html { redirect_to tour_poi_path(@tour, @poi), notice: 'Poi was successfully created.' }
         format.json { render json: @poi, status: :created, location: @poi }
       else
         format.html { render action: "new" }
@@ -57,11 +62,12 @@ class PoisController < ApplicationController
   # PUT /pois/1
   # PUT /pois/1.json
   def update
+    @tour = Tour.find(params[:tour_id])
     @poi = Poi.find(params[:id])
 
     respond_to do |format|
       if @poi.update_attributes(params[:poi])
-        format.html { redirect_to @poi, notice: 'Poi was successfully updated.' }
+        format.html { redirect_to tour_poi_path(@tour, @poi), notice: 'Poi was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

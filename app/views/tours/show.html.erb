@@ -1,6 +1,10 @@
+<% provide(:title, @tour.name + " Tour") %>
 <h1>Tour: <%= @tour.name %></h1>
 <h3>Description</h3>
 <p><%= @tour.description %></p>
 
+<p><%= link_to "Edit", edit_tour_path(@tour) %></p>
+
 <h3>POIs:</h3>
-<%= render 'pois/poi_table', pois: @tour.poi %>
+<%= render 'pois/poi_table', pois: @tour.pois %>
+<%= link_to "Add Point of Interest", new_tour_poi_path(@tour) %>

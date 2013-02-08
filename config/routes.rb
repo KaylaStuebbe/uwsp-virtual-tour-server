@@ -2,9 +2,15 @@ GeoTourExampleServer::Application.routes.draw do
 
   resources :item_to_views
 
-  resources :pois
+  # resources :pois
 
-  resources :tours
+  resources :tours do
+    resources :pois
+  end
+
+  root :to => 'tours#index'
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
