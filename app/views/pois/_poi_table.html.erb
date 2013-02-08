@@ -15,7 +15,7 @@
     <td><%= poi.long %></td>
     <td><%= link_to 'Show', tour_poi_path(@tour, poi) %></td>
     <%# <td><%= link_to 'Edit', edit_tour_poi_path(@tour, poi)</td> %>
-    <td><%= link_to 'Destroy', poi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Destroy', tour_poi_path(@tour, poi), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>

@@ -83,7 +83,7 @@ class PoisController < ApplicationController
     @poi.destroy
 
     respond_to do |format|
-      format.html { redirect_to pois_url }
+      format.html { redirect_to tour_pois_url }
       format.json { head :no_content }
     end
   end
