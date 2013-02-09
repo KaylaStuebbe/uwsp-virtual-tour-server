@@ -1,4 +1,4 @@
-<%= semantic_form_for(@poi, url: tour_pois_path(@tour)) do |f| %>
+<%= semantic_form_for(@poi, url: tour_poi_path(@tour, @poi)) do |f| %>
   <% if @poi.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@poi.errors.count, "error") %> prohibited this poi from being saved:</h2>
