@@ -14,7 +14,7 @@
 
 <% @tours.each do |tour| %>
   <tr>
-    <td><%= link_to tour.name, @tour %></td>
+    <td><%= link_to tour.name, tour %></td>
     <td><%= tour.location %></td>
     <td><%= tour.pois.count %></td>
     <td><%= link_to 'Edit', edit_tour_path(tour) %></td>
