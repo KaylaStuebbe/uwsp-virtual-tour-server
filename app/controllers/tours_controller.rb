@@ -27,6 +27,10 @@ class ToursController < ApplicationController
     @tour = Tour.find(params[:id])
   end
 
+  def delete
+    @tour = Tour.find(params[:tour_id])
+  end
+
   def destroy
     @tour = Tour.find(params[:id])
     @tour.destroy

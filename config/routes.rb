@@ -6,6 +6,8 @@ GeoTourExampleServer::Application.routes.draw do
 
   resources :tours do
     resources :pois
+
+    get 'delete'
   end
 
   root :to => 'tours#index'

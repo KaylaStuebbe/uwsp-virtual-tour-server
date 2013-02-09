@@ -2,3 +2,4 @@
 <h1>Editing Tour: <%= @tour.name %></h1>
 
 <%= render 'form' %>
+<%= link_to 'Destroy', tour_delete_path(@tour), :class => 'btn btn-danger' %>
