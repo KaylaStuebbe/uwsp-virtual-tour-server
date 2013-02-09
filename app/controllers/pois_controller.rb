@@ -24,11 +24,12 @@ class PoisController < ApplicationController
     end
   end
 
-  # GET /pois/new
-  # GET /pois/new.json
+  # GET /tour/1/pois/new
+  # GET /tour/1/pois/new.json
   def new
     @tour = Tour.find(params[:tour_id])
     @poi = Poi.new
+    @poi.tour = @tour
 
     respond_to do |format|
       format.html # new.html.erb
