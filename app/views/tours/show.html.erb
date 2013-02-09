@@ -3,8 +3,8 @@
 <h3>Description</h3>
 <p><%= @tour.description %></p>
 
-<p><%= link_to "Edit", edit_tour_path(@tour) %></p>
+<p><%= link_to "Edit", edit_tour_path(@tour), :class => 'btn' %></p>
 
 <h3>POIs:</h3>
 <%= render 'pois/poi_table', pois: @tour.pois %>
-<%= link_to "Add Point of Interest", new_tour_poi_path(@tour) %>
+<%= link_to "Add Point of Interest", new_tour_poi_path(@tour), :class => 'btn' %>

@@ -1,4 +1,4 @@
-<table>
+<table class="poi-table table table-striped">
   <tr>
     <th>Title</th>
     <th>Lat</th>
@@ -14,7 +14,7 @@
     <td><%= poi.lat %></td>
     <td><%= poi.long %></td>
     <td><%= link_to 'Show', tour_poi_path(@tour, poi) %></td>
-    <%# <td><%= link_to 'Edit', edit_tour_poi_path(@tour, poi)</td> %>
+    <td><%= link_to 'Edit', edit_tour_poi_path(@tour, poi) %></td>
     <td><%= link_to 'Destroy', tour_poi_path(@tour, poi), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

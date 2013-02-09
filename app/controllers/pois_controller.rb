@@ -38,6 +38,7 @@ class PoisController < ApplicationController
 
   # GET /pois/1/edit
   def edit
+    @tour = Tour.find(params[:tour_id])
     @poi = Poi.find(params[:id])
   end
 
