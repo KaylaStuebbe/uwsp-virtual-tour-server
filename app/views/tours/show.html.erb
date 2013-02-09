@@ -1,5 +1,8 @@
 <% provide(:title, @tour.name + " Tour") %>
 <h1>Tour: <%= @tour.name %></h1>
+
+<p>Format: HTML | <%= link_to "XML", tour_path(@tour, :format => :xml) %> | <%= link_to "JSON", tour_path(@tour, :format => :json) %></p>
+
 <h3>Description</h3>
 <p><%= @tour.description %></p>
 

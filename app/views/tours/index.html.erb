@@ -1,5 +1,6 @@
 <% provide(:title, 'Tours') %>
 <h1>Tours</h1>
+<p>Format: HTML | <%= link_to "XML", tours_path(:format => :xml) %> | <%= link_to "JSON", tours_path(:format => :json) %></p>
 
 <table class="table table-striped tours-table">
   <tr>
