@@ -9,6 +9,10 @@ group :test, :development do
   gem 'sqlite3'
 end
 
+group :development do
+  gem 'annotate'
+end
+
 gem 'pg'
 
 # Gems used only for assets and not required
