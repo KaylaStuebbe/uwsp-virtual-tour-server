@@ -1,6 +1,6 @@
 GeoTourExampleServer::Application.routes.draw do
 
-  resources :item_to_views
+  resources :item_to_views, :users
 
   # resources :pois
 
