@@ -4,14 +4,17 @@
 #   Ensure the SQLite 3 gem is defined in your Gemfile
 #   gem 'sqlite3'
 development: &common
-  adapter: postgresql
-  database: gis480
+  adapter: sqlite3
+  database: db/dev.sqlite3
+  pool: 5
+  timeout: 5000
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
 # Do not set this db to the same as development or production.
 test:
   <<: *common
-  database: gis480-test
+  database: db/test.sqlite3
+
 production:
   <<: *common
