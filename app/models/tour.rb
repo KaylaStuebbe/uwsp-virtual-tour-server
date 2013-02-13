@@ -18,6 +18,8 @@ class Tour < ActiveRecord::Base
 
   before_destroy :delete_pois
 
+  acts_as_gmappable :lat => 'lat', :lng => 'long', :process_geocoding => false
+
   def delete_pois
     pois.each do |p| 
       p.destroy 
