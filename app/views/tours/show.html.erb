@@ -13,6 +13,10 @@
 
 <h3>Location</h3>
 <p>Lat: <%= @tour.lat %>, Long: <%= @tour.long %></p>
+<% unless @map_json == "[]" %>
+  <%= gmaps("markers" => {"data" => @tour.to_gmaps4rails}, 
+            "map_options" => { :type => "HYBRID", :auto_zoom => false, :zoom => 15 } ) %>
+<% end %>
 
 <p><%= link_to "Edit", edit_tour_path(@tour), :class => 'btn' %></p>
 
