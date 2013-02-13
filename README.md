@@ -14,8 +14,9 @@ This is a server that manages data for the UWSP Virtual Tour System.
         * rails:  
             `$ gem install rails -v 3.2.11`
 
-2. Install Postgres Database  
-[OS specific guilds](http://wiki.postgresql.org/wiki/Detailed_installation_guides)
+2. Install Database
+    -Rename config/database.example.yml to config/database.yml (this will use SQLite by default)
+    -(OPTIONAL) Install PostgresDB ([OS specific guilds](http://wiki.postgresql.org/wiki/Detailed_installation_guides)) and change database.yml to point at pg database
 
 4. Clone this project  
 
