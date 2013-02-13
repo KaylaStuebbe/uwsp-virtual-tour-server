@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130212172049) do
+ActiveRecord::Schema.define(:version => 20130213013108) do
 
   create_table "item_to_views", :force => true do |t|
     t.string   "title"
@@ -49,5 +49,7 @@ ActiveRecord::Schema.define(:version => 20130212172049) do
     t.datetime "updated_at", :null => false
     t.integer  "score"
   end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
 
 end

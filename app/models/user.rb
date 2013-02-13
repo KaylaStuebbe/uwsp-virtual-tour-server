@@ -12,4 +12,16 @@
 
 class User < ActiveRecord::Base
   attr_accessible :email, :username, :score
+
+  after_initialize :default_values
+  before_save { |user| user.email = email.downcase }
+
+  validates :username, presence: true
+  validates :email, presence: true, length: { maximum: 50, minimum: 6 }, 
+                    uniqueness: { case_sensitive: false }
+
+  private
+    def default_values
+      self.score ||= 0
+    end
 end
