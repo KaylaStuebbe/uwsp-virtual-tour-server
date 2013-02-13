@@ -6,6 +6,8 @@ capybara-*.html
 .rvmrc
 /.bundle
 /vendor/bundle
+vendor/ruby
+vendor/jruby
 /log/*
 /tmp/*
 /db/*.sqlite3
