@@ -8,6 +8,9 @@ gem 'rails', '3.2.6'
 group :test, :development do
   gem 'sqlite3'
   gem 'rspec-rails', '2.11.0'
+  gem 'guard-rspec', '1.2.1'
+  gem 'guard-spork', '1.2.0'
+  gem 'spork', '0.9.2'
 end
 
 group :development do
@@ -28,6 +31,16 @@ group :assets do
 
   gem 'uglifier', '>= 1.0.3'
 end
+group :test do
+  gem 'capybara', '1.1.2'
+end
+
+# Test gems on Macintosh OS X
+group :test do
+  gem 'rb-fsevent', '0.9.1', :require => false
+  gem 'growl', '1.0.3'
+  gem 'fuubar'
+end 
 
 gem 'jquery-rails'
 
