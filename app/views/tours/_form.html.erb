@@ -13,9 +13,54 @@
 
   <%= f.input :name %>
   <%= f.input :description, :as => :text, :input_html => { :rows => 10 } %>
-  <%= f.inputs :lat, :long %>
+  <div class='latLongFields'>
+    <%= f.inputs :lat, :long %>
+  </div>
+  <% @map_options = { :type => "HYBRID", :auto_zoom => false, :zoom => 15 }
+    if @tour.to_gmaps4rails == "[]"
+     @map_options[:detect_location] = true
+     @map_options[:center_on_user] = true
+  end %>
+  <%= gmaps("markers" => {"data" => @tour.to_gmaps4rails, :options => { :draggable => true } }, 
+            "map_options" => @map_options) %>
   <%= f.actions do %>
     <%= f.action :submit, :button_html => { :class => "btn btn-primary" } %>
     <%= f.action :cancel, :label => "Cancel" %>
   <% end %>
+<% end %>
+<% content_for :scripts do %>
+<script type="text/javascript" charset="utf-8">
+function listenToMarkerDrag() {
+  for (var i = 0; i <  Gmaps.map.markers.length; ++i) {
+     google.maps.event.addListener(Gmaps.map.markers[i].serviceObject, 'dragend', 
+      function() { Gmaps.map.HandleDragend(this.getPosition()) })
+  }
+}
+
+Gmaps.map.HandleDragend = function(pos) {
+  $('#tour_lat').val(pos.lat().toFixed(5))
+  $('#tour_long').val(pos.lng().toFixed(5))
+}
+
+function movePointer() {
+  var loc = {lat : $('#tour_lat').val(),
+             lng : $('#tour_long').val() }
+  Gmaps.map.replaceMarkers([loc]);
+  listenToMarkerDrag()
+}
+
+$('#tour_lat').on('change', movePointer)
+$('#tour_long').on('change', movePointer)
+
+var oldonload = window.onload
+if (typeof window.onload != 'function') {
+    window.onload = listenToMarkerDrag
+} 
+else {
+  window.onload = function() {
+    oldonload()
+    listenToMarkerDrag()
+  }
+}
+</script>
 <% end %>
